@@ -10,7 +10,7 @@
 function cod_bof_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-bof_session-body'
+  // Exported field: 'node-bof_session-body'.
   $fields['node-bof_session-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -36,6 +36,7 @@ function cod_bof_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'field_permissions' => array(
@@ -94,11 +95,11 @@ function cod_bof_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-bof_session-field_session_room'
+  // Exported field: 'node-bof_session-field_session_room'.
   $fields['node-bof_session-field_session_room'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_session_room',
@@ -106,56 +107,57 @@ function cod_bof_field_default_fields() {
         'type' => '2',
       ),
       'foreign keys' => array(
-        'nid' => array(
+        'node' => array(
           'columns' => array(
-            'nid' => 'nid',
+            'target_id' => 'nid',
           ),
           'table' => 'node',
         ),
       ),
       'indexes' => array(
-        'nid' => array(
-          0 => 'nid',
+        'target_id' => array(
+          0 => 'target_id',
         ),
       ),
-      'module' => 'node_reference',
+      'locked' => '0',
+      'module' => 'entityreference',
       'settings' => array(
-        'field_permissions' => array(
-          'create' => 0,
-          'edit' => 'edit',
-          'edit own' => 0,
-          'view' => 'view',
-          'view own' => 0,
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'title',
+            'type' => 'property',
+          ),
+          'target_bundles' => array(
+            'room' => 'room',
+          ),
         ),
-        'referenceable_types' => array(
-          'article' => 0,
-          'bof_session' => 0,
-          'page' => 0,
-          'room' => 'room',
-          'schedule_item' => 0,
-          'session' => 0,
-          'time_slot' => 0,
-        ),
-        'view' => array(
-          'args' => array(),
-          'display_name' => '',
-          'view_name' => '',
-        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
       ),
-      'translatable' => '1',
-      'type' => 'node_reference',
+      'translatable' => '0',
+      'type' => 'entityreference',
     ),
     'field_instance' => array(
       'bundle' => 'bof_session',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Select room in which this BoF occurs.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
-          'settings' => array(),
-          'type' => 'node_reference_default',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
           'weight' => 1,
         ),
         'teaser' => array(
@@ -168,7 +170,7 @@ function cod_bof_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_session_room',
       'label' => 'Room',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
@@ -182,7 +184,7 @@ function cod_bof_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-bof_session-field_session_slot'
+  // Exported field: 'node-bof_session-field_session_slot'.
   $fields['node-bof_session-field_session_slot'] = array(
     'field_config' => array(
       'active' => '1',
@@ -194,44 +196,43 @@ function cod_bof_field_default_fields() {
         'type' => '2',
       ),
       'foreign keys' => array(
-        'nid' => array(
+        'node' => array(
           'columns' => array(
-            'nid' => 'nid',
+            'target_id' => 'nid',
           ),
           'table' => 'node',
         ),
       ),
       'indexes' => array(
-        'nid' => array(
-          0 => 'nid',
+        'target_id' => array(
+          0 => 'target_id',
         ),
       ),
-      'module' => 'node_reference',
+      'locked' => '0',
+      'module' => 'entityreference',
       'settings' => array(
-        'field_permissions' => array(
-          'create' => 0,
-          'edit' => 'edit',
-          'edit own' => 0,
-          'view' => 'view',
-          'view own' => 0,
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'title',
+            'type' => 'property',
+          ),
+          'target_bundles' => array(
+            'time_slot' => 'time_slot',
+          ),
         ),
-        'referenceable_types' => array(
-          'article' => 0,
-          'bof_session' => 0,
-          'page' => 0,
-          'room' => 0,
-          'schedule_item' => 0,
-          'session' => 0,
-          'time_slot' => 'time_slot',
-        ),
-        'view' => array(
-          'args' => array(),
-          'display_name' => '',
-          'view_name' => '',
-        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
       ),
-      'translatable' => '1',
-      'type' => 'node_reference',
+      'translatable' => '0',
+      'type' => 'entityreference',
     ),
     'field_instance' => array(
       'bundle' => 'bof_session',
@@ -241,9 +242,11 @@ function cod_bof_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
-          'settings' => array(),
-          'type' => 'node_reference_default',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
           'weight' => 2,
         ),
         'teaser' => array(
@@ -256,7 +259,7 @@ function cod_bof_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_session_slot',
       'label' => 'Time slot',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
@@ -274,7 +277,6 @@ function cod_bof_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Description');
   t('Room');
-  t('Select room in which this BoF occurs.');
   t('Time slot');
 
   return $fields;

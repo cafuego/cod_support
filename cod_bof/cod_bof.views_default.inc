@@ -32,12 +32,6 @@ function cod_bof_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'cod_session_schedule';
   $handler->display->display_options['style_options']['schedule_interactive'] = '1';
-  $handler->display->display_options['style_options']['schedule_days'] = array(
-    'Friday May, 04 2012' => 0,
-    'Saturday May, 05 2012' => 0,
-    'Sunday May, 06 2012' => 0,
-    'Monday May, 07 2012' => 0,
-  );
   $handler->display->display_options['style_options']['interactive_type'] = 'bof_session';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
@@ -94,6 +88,10 @@ function cod_bof_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'program/bofs/%';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['path'] = 'program/bofs';
   $export['bof_schedule'] = $view;
 
