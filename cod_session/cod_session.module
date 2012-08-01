@@ -89,8 +89,8 @@ function cod_session_schedule_access($node_type = 'session', $account = NULL) {
     'field_name' => 'field_session_slot',
   );
   return user_access('create ' . $node_type . ' content', $account)
-    && user_access('create field_session_room', $account)
-    && user_access('create field_session_slot', $account)
+    && user_access('edit own field_session_room', $account)
+    && user_access('edit own field_session_slot', $account)
     && cod_session_field_access('edit', $field_room, $node_type, $node_obj, $account)
     && cod_session_field_access('edit', $field_slot, $node_type, $node_obj, $account);
 }

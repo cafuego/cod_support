@@ -63,6 +63,12 @@ function cod_bof_field_default_fields() {
           'type' => 'text_default',
           'weight' => 0,
         ),
+        'listing' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -160,6 +166,12 @@ function cod_bof_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 1,
         ),
+        'listing' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -248,6 +260,12 @@ function cod_bof_field_default_fields() {
           ),
           'type' => 'entityreference_label',
           'weight' => 2,
+        ),
+        'listing' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',

@@ -5,3 +5,44 @@
  */
 
 include_once('cod_bof.features.inc');
+
+
+function cod_bof_menu() {
+  $items['program/bofs'] = array(
+    'title' => 'BoFs',
+    'page arguments' => array('bof_schedule', 'page'),
+    'page callback' => 'cod_bof_schedule_tabs',
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function cod_bof_schedule_tabs($view_id, $display_id) {
+  $days = cod_session_days();
+  if (!empty($days)) {
+    $tabs = array();
+    $cnt = 0;
+    foreach($days as $day) {
+      $tabs[] = array(
+        'title' => $day,
+        'type' => 'view',
+        'vid' => $view_id,
+        'display' => $display_id,
+        'args' => cod_session_day_url($day),
+        'weight' => $cnt++, // Doesn't properly sort if we provide same values
+      );
+    }
+    $qtoptions = array(
+      'style' => 'Basic',
+      'ajax' => FALSE,
+       );
+    $qtname = 'cod_session_tabs';
+    $quicktabs = quicktabs_build_quicktabs($qtname,$qtoptions,$tabs);
+    return drupal_render($quicktabs['content']);
+  }
+  else {
+    return views_embed_view($view_id, $display_id);
+  }
+}

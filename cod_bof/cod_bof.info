@@ -15,6 +15,7 @@ features[features_api][] = api:1
 features[field][] = node-bof_session-body
 features[field][] = node-bof_session-field_session_room
 features[field][] = node-bof_session-field_session_slot
+features[flag][] = bof_schedule
 features[node][] = bof_session
 features[user_permission][] = create bof_session content
 features[user_permission][] = create field_session_room
