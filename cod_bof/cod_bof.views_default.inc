@@ -30,7 +30,7 @@ function cod_bof_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'cod_session_schedule';
+  $handler->display->display_options['style_plugin'] = 'cod_bof_schedule';
   $handler->display->display_options['style_options']['schedule_interactive'] = '1';
   $handler->display->display_options['style_options']['interactive_type'] = 'bof_session';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -88,11 +88,11 @@ function cod_bof_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'program/bofs/%';
+  $handler->display->display_options['path'] = 'program/grid/bofs/%';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['path'] = 'program/bofs';
+  $handler->display->display_options['path'] = 'program/grid/bofs';
   $export['bof_schedule'] = $view;
 
   return $export;
