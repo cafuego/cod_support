@@ -8,6 +8,7 @@ dependencies[] = cod_base
 dependencies[] = commerce
 dependencies[] = commerce_cart
 dependencies[] = commerce_features
+dependencies[] = commerce_price
 dependencies[] = commerce_product_ui
 dependencies[] = commerce_registration
 dependencies[] = date
